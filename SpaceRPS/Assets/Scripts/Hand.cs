@@ -41,6 +41,7 @@ public class Hand : MonoBehaviour
         }else if (this.gameObject.name == "Paper"){
             if (opponent.gameObject.name == "Scissor"){
                 spriteRenderer.sprite = other.GetComponent<SpriteRenderer>().sprite;
+                this.gameObject.name = "Scissor";
             }
             else if (opponent.gameObject.name == "Rock")
             {
@@ -54,10 +55,19 @@ public class Hand : MonoBehaviour
             if(opponent.gameObject.name == "Paper")
             {
                 spriteRenderer.sprite = other.GetComponent<SpriteRenderer>().sprite;
+                this.gameObject.name = "Paper";
             }
-        }    
-
-
+        }else if (this.gameObject.name == "Scissor"){
+            if(opponent.gameObject.name == "Rock")
+            {
+                spriteRenderer.sprite = other.GetComponent<SpriteRenderer>().sprite;
+                this.gameObject.name = "Rock";
+            }
+            if(opponent.gameObject.name == "Paper")
+            {
+                Debug.Log("SCISSOR BEATS PAPER");
+            }    
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other){
