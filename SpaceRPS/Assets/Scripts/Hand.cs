@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Hand : MonoBehaviour
 {
     public float moveSpeed = 2.0f; // Set player's movement speed.
     public float rotationSpeed = 90.0f; // Set layer's rotation speed.
@@ -18,34 +18,45 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        // transform.Translate(Vector3.up * moveSpeed * Time.fixedDeltaTime);
-        // transform.Rotate(Vector3.back * horizontalInput * rotationSpeed * Time.fixedDeltaTime);
+        
     }
 
     void FixedUpdate(){
         // Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));     
         
         rb.linearVelocity = transform.up * moveSpeed;
-
-        if (rb != null){
-            float rotationAmount = -horizontalInput * rotationSpeed * Time.fixedDeltaTime;
-            float newRotationZ = rb.rotation + rotationAmount;
-            rb.MoveRotation(newRotationZ);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other){
         
         GameObject opponent = other.gameObject;
-
+        
         if (opponent.gameObject.name == "Left_Wall" || opponent.gameObject.name == "Right_Wall" || opponent.gameObject.name == "Bottom_Wall" || opponent.gameObject.name == "Top_Wall"){
             transform.Rotate(0,0,180);
-        }
+        }else if (this.gameObject.name == "Paper"){
+            if (opponent.gameObject.name == "Scissor"){
+                Debug.Log("SCISSOR BEATS PAPER");
+            }
+            else if (opponent.gameObject.name == "Rock")
+            {
+                Debug.Log("PAPER BEATS ROCK");
+            }
+        }else if (this.gameObject.name == "Rock"){
+            if(opponent.gameObject.name == "Scissor")
+            {
+                Debug.Log("ROCK BEATS SCISSOR");
+            }
+            if(opponent.gameObject.name == "Paper")
+            {
+                Debug.Log("PAPER BEATS ROCK");
+            }
+        }    
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D other){
-        Debug.Log("CRASH");
+        //Debug.Log("CRASH");
         
         Transform parent = other.gameObject.transform.parent;
         
