@@ -4,15 +4,20 @@ public class Hand : MonoBehaviour
 {
     public float moveSpeed = 2.0f; // Set player's movement speed.
     public float rotationSpeed = 90.0f; // Set layer's rotation speed.
+    public Sprite scissorSprite; //Resources.Load <Sprite> ("Sprites/scissor2_0");
+    public Sprite rockSprite;
+    public Sprite paperSprite;
     
     // Private variables
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component attached to the player
+    private Rigidbody2D rb; 
     private float horizontalInput; 
+    private SpriteRenderer spriteRenderer; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,7 +40,7 @@ public class Hand : MonoBehaviour
             transform.Rotate(0,0,180);
         }else if (this.gameObject.name == "Paper"){
             if (opponent.gameObject.name == "Scissor"){
-                Debug.Log("SCISSOR BEATS PAPER");
+                spriteRenderer.sprite = other.GetComponent<SpriteRenderer>().sprite;
             }
             else if (opponent.gameObject.name == "Rock")
             {
@@ -48,7 +53,7 @@ public class Hand : MonoBehaviour
             }
             if(opponent.gameObject.name == "Paper")
             {
-                Debug.Log("PAPER BEATS ROCK");
+                spriteRenderer.sprite = other.GetComponent<SpriteRenderer>().sprite;
             }
         }    
 

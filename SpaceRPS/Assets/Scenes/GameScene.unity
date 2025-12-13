@@ -919,6 +919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotationSpeed: 90
+  scissorSprite: {fileID: -1341518143244902961, guid: d837b18069da61645b453abb0d4e38ef, type: 3}
+  rockSprite: {fileID: 8476764939301271271, guid: 486b30461543a3b4abb5cba0ebddeb32, type: 3}
+  paperSprite: {fileID: 485400070294248687, guid: ec10a23eb1eb8fb4a9a6c05a9d75f35e, type: 3}
 --- !u!1 &1074452503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotationSpeed: 90
+  scissorSprite: {fileID: -1341518143244902961, guid: d837b18069da61645b453abb0d4e38ef, type: 3}
+  rockSprite: {fileID: 8476764939301271271, guid: 486b30461543a3b4abb5cba0ebddeb32, type: 3}
+  paperSprite: {fileID: 485400070294248687, guid: ec10a23eb1eb8fb4a9a6c05a9d75f35e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
