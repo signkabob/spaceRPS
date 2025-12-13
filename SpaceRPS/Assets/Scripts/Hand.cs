@@ -20,7 +20,7 @@ public class Hand : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StartCoroutine(PauseForSeconds(5f));
+        StartCoroutine(PauseForSeconds(3f));
     }
 
     // Update is called once per frame

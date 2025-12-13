@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         parent = this.gameObject.transform.parent;
         //parentSize = parent.childCount;
-        StartCoroutine(PauseForSeconds(5f));
+        StartCoroutine(PauseForSeconds(3f));
     }
 
     // Update is called once per frame
